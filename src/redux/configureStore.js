@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import {configureStore,applyMiddleware} from "@reduxjs/toolkit"
+import {configureStore} from "@reduxjs/toolkit"
 import thunk from "redux-thunk"
 import logger from "redux-logger"
 import userReducer from './user/user'
@@ -10,6 +10,6 @@ const rootReducer = combineReducers({
   userReducer,
   carReducer,
   appointmentReducer})
-const store = configureStore({reducer:rootReducer,Middleware:[thunk,logger]})
+const store = configureStore({ reducer:rootReducer, Middleware:[thunk,logger] })
 
 export default store
