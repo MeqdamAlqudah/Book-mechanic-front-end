@@ -10,6 +10,7 @@ const Signup = () => {
         setError('')
         e.preventdefault();
     }
+
   return (
     <div className={style.container}>
       <div className={style.wrapper}>
@@ -53,7 +54,7 @@ const Signup = () => {
         </small>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Signup
