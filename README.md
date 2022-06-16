@@ -2,58 +2,69 @@
 
 # Project Name
 
-> One paragraph statement about the project.
+> A Final captone project to book an appointment with a mechanic to service a car. It follows a given design of the website but it has customized to meet the needs to of the project theme.
 
 ![screenshot](./app_screenshot.png)
 
-Additional description about the project and its features.
+A user will be able to register as the owner of the a car or can include their proffession as a mechanic. Car owners can add cars and book an appointment with mechanics registered in the app.
+
+## Back-end
+[Rails API Back-end](https://github.com/MeqdamAlqudah/Book-mechanic)
 
 ## Built With
 
-- Major languages
-- Frameworks
-- Technologies used
+- React
+- Redux
+- Ruby on Rails
+- Rspec
+- Jest
+- Postgres
+- Bootstrap
 
 ## Live Demo
 
-[Live Demo Link](https://livedemo.com)
+[Live Demo Link](https://livedemo.com) Comming soon
 
 
 ## Getting Started
 
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
+To get a local copy up and running follow these simple steps.
 
-
-To get a local copy up and running follow these simple example steps.
-
+Clone the repository by enter the following in you terminal
+`git clone git@github.com:MeqdamAlqudah/Book-mechanic.git `
+Then `cd Book-mechanic`.
 ### Prerequisites
-
-### Setup
-
-### Install
+- Ruby
+- Ruby on Rails
+- NodeJS
+- NPM
+- Webpack
+- Git
 
 ### Usage
-
+To start the app. Run `npm start`
 ### Run tests
-
-### Deployment
-
-
+Run `Yarn test` or `jest`
 
 ## Authors
 
-👤 **Author1**
+👤 **Daniel Yerimah**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@Yerimah](https://github.com/yerimah)
+- Twitter: [@iamdeewyne](https://twitter.com/iamdeewyne)
+- LinkedIn: [@daniel-yerimah](https://www.linkedin.com/in/daniel-yerimah/)
 
-👤 **Author2**
+👤 **Meqdam Al-qudah**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- [GitHub](https://github.com/MeqdamAlqudah)
+- [Twitter](https://twitter.com/MeqdamQudah)
+- [LinkedIn](www.linkedin.com/in/meqdam-al-qudah-7514a21b5)
+
+👤 **Mphatso Lichapa**
+
+- GitHub: [@Lichapa](https://github.com/Lichapa) 
+- Twitter: [@LichapaMphatso](https://twitter.com/LichapaMphatso) 
+- LinkedIn: [mphatsolichapa](https://www.linkedin.com/in/mphatsolichapa) 
 
 ## 🤝 Contributing
 
