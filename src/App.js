@@ -6,7 +6,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<h1>Home</h1>} />
-        <Route path="/additem" element={<AddItemForm/>} />
+        <Route path="/additem" element={<AddItemForm />} />
       </Routes>
     </BrowserRouter>
   );
