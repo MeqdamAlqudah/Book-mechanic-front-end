@@ -15,7 +15,7 @@ const AddItemForm = () => {
         model: event.target[1].value,
         registration: event.target[2].value,
         photo: event.target[3].value,
-        user_id: 1,
+        user_id: user.id,
       },
       headers: {
         'Content-Type': 'application/json',
@@ -24,7 +24,7 @@ const AddItemForm = () => {
     }).then((res) => store.dispatch(
       { type: POST_CARS_DATA, newitem: res.data },
     )).catch((error) => {
-      console.log(error);
+      throw Error(error);
     });
   };
 
