@@ -1,5 +1,5 @@
 const CarDetail = () => (
-  <div>car detail</div>
+  <div />
 );
 
 export default CarDetail;

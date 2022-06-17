@@ -4,7 +4,7 @@ import store from '../../redux/configureStore';
 
 const AddItemForm = () => {
   const POST_CARS_DATA = 'POST_CARS_DATA';
-  const user = useSelector((el) => el.userReducer);
+  const user = useSelector((el) => el.userReducer.find((item) => item === 'currentUser'));
   const submitHandler = (event) => {
     event.preventDefault();
     axios({
@@ -15,7 +15,7 @@ const AddItemForm = () => {
         model: event.target[1].value,
         registration: event.target[2].value,
         photo: event.target[3].value,
-        user_id: 1,
+        user_id: user.id,
       },
       headers: {
         'Content-Type': 'application/json',
