@@ -24,7 +24,7 @@ const AddItemForm = () => {
     }).then((res) => store.dispatch(
       { type: POST_CARS_DATA, newitem: res.data },
     )).catch((error) => {
-      console.log(error);
+      throw Error(error);
     });
   };
 
