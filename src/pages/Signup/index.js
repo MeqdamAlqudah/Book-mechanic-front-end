@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import style from './style.module.css';
 // import store from '../../redux/configureStore';
@@ -6,58 +6,55 @@ import style from './style.module.css';
 // import axios from 'axios';
 
 const Signup = () => {
-    const [ name, setName ] = useState('');
-    const [ username, setUsername ] = useState('');
-    const [ email, setEmail ] = useState('');
-    const [ password, setPassword ] = useState('');
-    const [ confirmPassword, setConfrimPassword ] = useState('');
+  const [name, setName] = useState('');
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfrimPassword] = useState('');
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+    const data = {
+      name,
+      username,
+      email,
+      password,
+      password_confirmation: confirmPassword,
+      address: 'Nigeria',
+      phone: 123,
+      profession: 'Developer',
 
-        const data = {
-            name: name,
-            email: email,
-            password: password,
-            password_confirmation: confirmPassword,
-            address: 'Nigeria',
-            phone: 123,
-            profession: 'Developer'
-             
-        }
-        console.log(data)
-
-        try {
-            let res = await fetch('http://localhost:3000/api/v1/users', {
-                method: "POST",
-                body: JSON.stringify(data),
-                headers: {
-                    'Content-Type': 'application/json', }
-            });
-
-            // let resJson = await res.json();
-            // console.log(resJson)
-            
-            if (res.status === 200) {
-                setName('')
-                setUsername('')
-                setEmail('')
-                setPassword('')
-                setConfrimPassword('')
-            } else {
-                return "some error occured"
-            }
-        } catch (err) {
-            console.log(err);
-        }
     };
 
+    try {
+      const res = await fetch('http://localhost:3000/api/v1/users', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: { 'Content-Type': 'application/json' },
+      });
+
+      // let resJson = await res.json();
+      // console.log(resJson)
+
+      if (res.status === 200) {
+        setName('');
+        setUsername('');
+        setEmail('');
+        setPassword('');
+        setConfrimPassword('');
+      } else {
+        return 'some error occured';
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <div className={style.container}>
       <div className={style.wrapper}>
-        <form className={style.card} onSubmit={handleSubmit} >
+        <form className={style.card} onSubmit={handleSubmit}>
           <div>Signup</div>
 
           <label htmlFor="name">
@@ -100,8 +97,6 @@ const Signup = () => {
 
 export default Signup;
 
-
-
 //   const USER_SIGNUP = 'USER_SIGNUP'
 // //   const user = useSelector((el) => el.userReducer);
 //   const handleSubmit = async (e) => {
@@ -115,11 +110,11 @@ export default Signup;
 //           username: e.target[1].value,
 //           email: e.target[2].value,
 //           password: e.target[3].value,
-//           confirmPassword: e.target[4].value 
+//           confirmPassword: e.target[4].value
 //         },
 //         headers: {
 //           'Content-Type': 'application/json',
-  
+
 //         },
 //       }).then((res) => store.dispatch(
 //         { type: USER_SIGNUP, newUser: res.data },
