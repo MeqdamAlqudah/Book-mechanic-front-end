@@ -1,8 +1,8 @@
+import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import Signup from './pages/Signup';
 import Home from './pages/Home';
-import { useState } from 'react';
-import { useSelector } from 'react-redux';
 import AddItemForm from './components/Forms/AddItemForm';
 import CarDetail from './components/Pages/CarDetail';
 
