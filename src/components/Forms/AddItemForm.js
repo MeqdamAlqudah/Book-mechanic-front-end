@@ -4,7 +4,7 @@ import store from '../../redux/configureStore';
 
 const AddItemForm = () => {
   const POST_CARS_DATA = 'POST_CARS_DATA';
-  const user = useSelector((el) => el.userReducer);
+  const user = useSelector((el) => el.userReducer.find((item) => item === 'currentUser'));
   const submitHandler = (event) => {
     event.preventDefault();
     axios({
