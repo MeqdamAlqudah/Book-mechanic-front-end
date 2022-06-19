@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import style from './style.module.css';
-// import store from '../../redux/configureStore';
-// // import { useSelector } from 'react-redux';
-// import axios from 'axios';
+import axios from 'axios';
+import store from '../../redux/configureStore';
 
 const Signup = () => {
+  const USER_SIGNUP = 'USER_SIGNUP';
+  
   const [name, setName] = useState('');
-  const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfrimPassword] = useState('');
@@ -17,38 +17,29 @@ const Signup = () => {
 
     const data = {
       name,
-      username,
       email,
       password,
       password_confirmation: confirmPassword,
       address: 'Nigeria',
       phone: 123,
       profession: 'Developer',
+      photo: 'photo'
 
     };
 
-    try {
-      const res = await fetch('http://localhost:3000/api/v1/users', {
-        method: 'POST',
-        body: JSON.stringify(data),
-        headers: { 'Content-Type': 'application/json' },
-      });
-
-      // let resJson = await res.json();
-      // console.log(resJson)
-
-      if (res.status === 200) {
+    axios({
+        method: "POST",
+        url: "http://127.0.0.1:3000/api/v1/users",
+        data: data,
+        headers: {
+                'Content-Type': 'application/json',
+        }
+    }).then((response) => store.dispatch({ type: USER_SIGNUP, newUser: response.data }))
+       
         setName('');
-        setUsername('');
         setEmail('');
         setPassword('');
         setConfrimPassword('');
-      } else {
-        return 'some error occured';
-      }
-    } catch (err) {
-      console.log(err);
-    }
   };
 
   return (
@@ -59,27 +50,22 @@ const Signup = () => {
 
           <label htmlFor="name">
             Name
-            <input type="name" id="name" placeholder="Name" onChange={(e) => setName(e.target.value)} required />
-          </label>
-
-          <label htmlFor="username">
-            Username
-            <input type="text" id="username" placeholder="Username" onChange={(e) => setUsername(e.target.value)} required />
+            <input type="name" id="name" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} required />
           </label>
 
           <label htmlFor="email">
             Email
-            <input type="email" id="eamil" placeholder="Email" onChange={(e) => setEmail(e.target.value)} required />
+            <input type="email" id="eamil" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
           </label>
 
           <label htmlFor="password">
             Password
-            <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required />
+            <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
           </label>
 
           <label htmlFor="confirmPassword">
             Confirm Password
-            <input type="password" id="password" placeholder="Confirm Password" onChange={(e) => setConfrimPassword(e.target.value)} required />
+            <input type="password" id="password" placeholder="Confirm Password" value={confirmPassword} onChange={(e) => setConfrimPassword(e.target.value)} required />
           </label>
 
           <button type="submit" className={style.btn}>Sign Up</button>
@@ -97,27 +83,36 @@ const Signup = () => {
 
 export default Signup;
 
-//   const USER_SIGNUP = 'USER_SIGNUP'
-// //   const user = useSelector((el) => el.userReducer);
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-
 //     axios({
-//         method: 'post',
-//         url: 'http://localhost:3000/api/v1/users',
-//         data: {
-//           name: e.target[0].value,
-//           username: e.target[1].value,
-//           email: e.target[2].value,
-//           password: e.target[3].value,
-//           confirmPassword: e.target[4].value
-//         },
-//         headers: {
-//           'Content-Type': 'application/json',
+    //     method: 'post',
+    //     url: 'http://localhost:3000/api/v1/users',
+        
+    //     headers: {
+    //       'Content-Type': 'application/json',
 
-//         },
-//       }).then((res) => store.dispatch(
-//         { type: USER_SIGNUP, newUser: res.data },
-//       )).catch((error) => {
-//         console.log(error);
-//       });
+    //     },
+    //   }).then((res) => store.dispatch(
+    //     { type: USER_SIGNUP, newUser: res.data },
+    //   )).catch((error) => {
+    //     console.log(error);
+    //   });
+
+    // try {
+    //     const res = await fetch('http://127.0.0.1:3000/api/v1/users', {
+    //       method: 'POST',
+    //       body: JSON.stringify(data),
+    //       headers: { 'Content-Type': 'application/json' },
+    //     });
+  
+    //     // let resJson = await res.json();
+    //     // console.log(resJson)
+  
+    //     if (res.status === 200) {
+    //       setName('');
+    //       setEmail('');
+    //       setPassword('');
+    //       setConfrimPassword('');
+    //     }
+    //   } catch (err) {
+    //     console.log(err);
+    //   }
