@@ -42,7 +42,7 @@ CarDetail.propTypes = {
   userid: PropTypes.number,
 };
 CarDetail.defaultProps = {
-  carId: 1,
+  carId: 5,
   userid: 1,
 };
 export default CarDetail;

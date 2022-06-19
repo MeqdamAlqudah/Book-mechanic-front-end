@@ -18,7 +18,7 @@ function App() {
       <Routes>
         <Route path="/" element={<>Home</>} />
         <Route path="/additem" element={<AddItemForm />} />
-        <Route path="/cardetail" element={<CarDetail clickHandler={clickHandler} userid={user ? user.id : 1} carid={carId} />} />
+        <Route path="/cardetail" element={<CarDetail clickHandler={clickHandler} userid={user ? user.id : 1} carid={carId === 0 ? 2 : carId} />} />
         <Route path="/myappointmentpage" element={<MyAppointmentDetail userid={1} />} />
       </Routes>
     </BrowserRouter>
