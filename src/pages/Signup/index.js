@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import style from './style.module.css';
 import axios from 'axios';
+import style from './style.module.css';
 import store from '../../redux/configureStore';
 
 const Signup = () => {
   const USER_SIGNUP = 'USER_SIGNUP';
-  
+
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -23,23 +23,23 @@ const Signup = () => {
       address: 'Nigeria',
       phone: 123,
       profession: 'Developer',
-      photo: 'photo'
+      photo: 'photo',
 
     };
 
     axios({
-        method: "POST",
-        url: "http://127.0.0.1:3000/api/v1/users",
-        data: data,
-        headers: {
-                'Content-Type': 'application/json',
-        }
-    }).then((response) => store.dispatch({ type: USER_SIGNUP, newUser: response.data }))
-       
-        setName('');
-        setEmail('');
-        setPassword('');
-        setConfrimPassword('');
+      method: 'POST',
+      url: 'http://127.0.0.1:3000/api/v1/users',
+      data,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }).then((response) => store.dispatch({ type: USER_SIGNUP, newUser: response.data }));
+
+    setName('');
+    setEmail('');
+    setPassword('');
+    setConfrimPassword('');
   };
 
   return (
@@ -82,37 +82,3 @@ const Signup = () => {
 };
 
 export default Signup;
-
-//     axios({
-    //     method: 'post',
-    //     url: 'http://localhost:3000/api/v1/users',
-        
-    //     headers: {
-    //       'Content-Type': 'application/json',
-
-    //     },
-    //   }).then((res) => store.dispatch(
-    //     { type: USER_SIGNUP, newUser: res.data },
-    //   )).catch((error) => {
-    //     console.log(error);
-    //   });
-
-    // try {
-    //     const res = await fetch('http://127.0.0.1:3000/api/v1/users', {
-    //       method: 'POST',
-    //       body: JSON.stringify(data),
-    //       headers: { 'Content-Type': 'application/json' },
-    //     });
-  
-    //     // let resJson = await res.json();
-    //     // console.log(resJson)
-  
-    //     if (res.status === 200) {
-    //       setName('');
-    //       setEmail('');
-    //       setPassword('');
-    //       setConfrimPassword('');
-    //     }
-    //   } catch (err) {
-    //     console.log(err);
-    //   }
