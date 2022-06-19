@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import AddItemForm from './components/Forms/AddItemForm';
 import CarDetail from './components/Pages/CarDetail';
+import MyAppointmentDetail from './components/Pages/MyAppointmentDetail';
 
 function App() {
   const [carId, setCarId] = useState(0);
@@ -17,7 +18,8 @@ function App() {
       <Routes>
         <Route path="/" element={<>Home</>} />
         <Route path="/additem" element={<AddItemForm />} />
-        <Route path="/cardetail" element={<CarDetail clickHandler={clickHandler} userid={user.id} carid={carId} />} />
+        <Route path="/cardetail" element={<CarDetail clickHandler={clickHandler} userid={user ? user.id : 1} carid={carId} />} />
+        <Route path="/myappointmentpage" element={<MyAppointmentDetail userid={1} />} />
       </Routes>
     </BrowserRouter>
   );
