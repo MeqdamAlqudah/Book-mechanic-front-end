@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import style from './style.module';
+import store from '../../redux/configureStore';
 import axios from 'axios';
 
 
 const Login = () => {
-
+    const USER_LOGIN = 'USER_LOGIN';
     const [ email, setEmail ] = useState('');
     const [ password, setPassword ] = useState('');
 
@@ -25,6 +26,9 @@ const Login = () => {
                 'Content-Type': 'application/json',
               },
         }).then((response) => store.dispatch({ type: USER_LOGIN, newUser: response.data }));
+
+        setEmail('');
+        setPassword('');
     };
 
     return (
