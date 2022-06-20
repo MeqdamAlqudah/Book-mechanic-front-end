@@ -1,6 +1,8 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import Signup from './pages/Signup';
+import Home from './pages/Home';
 import AddItemForm from './components/Forms/AddItemForm';
 import CarDetail from './components/Pages/CarDetail';
 
@@ -15,7 +17,8 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<>Home</>} />
+        <Route path="/" element={<Home />} />
+        <Route path="/signup" element={<Signup />} />
         <Route path="/additem" element={<AddItemForm />} />
         <Route path="/cardetail" element={<CarDetail clickHandler={clickHandler} userid={user.id} carid={carId} />} />
       </Routes>
