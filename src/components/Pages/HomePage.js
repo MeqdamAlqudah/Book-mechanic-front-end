@@ -9,9 +9,9 @@ const HomePage = () => {
   const userLogin = useSelector((el) =>  console.log(el))
 
   useEffect(() => {
-    if (!Object.keys(userLogin).length === 0) {
+    if (Object.keys(userLogin).length !== 0) {
       console.log(userLogin)
-      AxiosWrapper(`http://127.0.0.1:3000/api/v1/users/${userLogin.id}/cars`).then((res) => {
+      AxiosWrapper(`http://127.0.0.1:3000/api/v1/users/${userLogin[0].id}/cars`).then((res) => {
       setCars(res.data);
   });
   }

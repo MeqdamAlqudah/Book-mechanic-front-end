@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import style from './style.module';
+import style from './style.module.css';
 import store from '../../redux/configureStore';
 import axios from 'axios';
 
@@ -32,10 +32,10 @@ const Login = () => {
     };
 
     return (
-        <div className="main">
-            <div>
-                <h1>Login</h1>
-                <form onSubmit={submitHandler}>
+        <div className={style.main}>
+            <div className={style.wrapper}>
+                <form className={style.card} onSubmit={submitHandler}>
+                <div>Login</div>
                     <label htmlFor="email">
                         Email
                         <input type="email" id="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
@@ -45,7 +45,7 @@ const Login = () => {
                         <input type="password" id="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
                     </label>
 
-                    <button type="submit">Log In</button>
+                    <button type="submit" className={style.btn}>Log In</button>
                 </form>
 
                 <small>
