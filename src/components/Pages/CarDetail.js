@@ -1,10 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { v4 as uuidv4 } from 'uuid';
 import AxiosWrapper from '../../requirments/AxiosWrapper';
 
 const CarDetail = () => {
-
   const [currentCar, setCurrentCar] = useState({});
   const carId = useSelector((el) => el.carDetailReducer.currentCarId || JSON.parse(localStorage.getItem('carId')));
   useEffect(() => {

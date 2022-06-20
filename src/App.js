@@ -19,7 +19,7 @@ function App() {
         <Route path="/additem" element={<AddItemForm />} />
         <Route path="/cardetail" element={<CarDetail userid={user ? user.id : 4} />} />
         <Route path="/myappointmentpage" element={<MyAppointmentDetail userid={1} />} />
-       
+
       </Routes>
     </BrowserRouter>
   );
