@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Login from './pages/Login';
@@ -13,15 +13,18 @@ import HomePage from './components/Pages/HomePage';
 function App() {
   const [login, setLogin] = useState(false);
 
-  const user = useSelector((el) => el.userReducer.find(((user) => user === 'currentUser')));
+  const user = useSelector((el) => el.userReducer.current_user);
 
-  if (Object.keys(user.current_user).length !== 0) {
-    setLogin(true);
-  }
+  useEffect(() => {
+    if (Object.keys(user).length !== 0) {
+      setLogin(true);
+    }
+  }, [user]); 
+  
 
   return (
     <BrowserRouter>
-      <NavBar />
+      <NavBar login={login} />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<Login />} />
