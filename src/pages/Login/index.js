@@ -24,7 +24,7 @@ const Login = () => {
             headers: {
                 'Content-Type': 'application/json',
               },
-        }).then((response) => console.log(response));
+        }).then((response) => store.dispatch({ type: USER_LOGIN, newUser: response.data }));
     };
 
     return (

@@ -1,9 +1,14 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Login from './pages/Login';
+import NavBar from './components/Pages/NavBar';
+import Signup from './pages/Signup';
 import AddItemForm from './components/Forms/AddItemForm';
 import CarDetail from './components/Pages/CarDetail';
+import MyAppointmentDetail from './components/Pages/MyAppointmentDetail';
+
+import HomePage from './components/Pages/HomePage';
 
 function App() {
   const [carId, setCarId] = useState(0);
@@ -15,11 +20,15 @@ function App() {
   };
   return (
     <BrowserRouter>
+      <NavBar />
       <Routes>
-        <Route path="/" element={<>Home</>} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/additem" element={<AddItemForm />} />
         <Route path="/cardetail" element={<CarDetail clickHandler={clickHandler} userid={user ? user.id : 1} carid={carId === 0 ? 1 : carId} />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/additem" element={<AddItemForm />} />
+        <Route path="/myappointmentpage" element={<MyAppointmentDetail userid={1} />} />
+
       </Routes>
     </BrowserRouter>
   );
