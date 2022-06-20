@@ -13,6 +13,7 @@ const rootReducer = combineReducers({
   appointmentReducer,
   carDetailReducer,
 });
+
 const store = configureStore({ reducer: rootReducer, Middleware: [thunk, logger] });
 
 export default store;

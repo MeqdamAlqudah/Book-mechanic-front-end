@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import NavBar from './components/Pages/NavBar';
+import Signup from './pages/Signup';
 import AddItemForm from './components/Forms/AddItemForm';
 import CarDetail from './components/Pages/CarDetail';
 import HomePage from './components/Pages/HomePage';
@@ -12,6 +13,7 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/signup" element={<Signup />} />
         <Route path="/additem" element={<AddItemForm />} />
         <Route path="/cardetail" element={<CarDetail userid={user ? user.id : 4} />} />
       </Routes>
