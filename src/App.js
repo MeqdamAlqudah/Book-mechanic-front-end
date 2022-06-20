@@ -1,8 +1,10 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
+import NavBar from './components/Pages/NavBar';
 import AddItemForm from './components/Forms/AddItemForm';
 import CarDetail from './components/Pages/CarDetail';
+import HomePage from './components/Pages/HomePage';
 
 function App() {
   const [carId, setCarId] = useState(0);
@@ -14,10 +16,11 @@ function App() {
   };
   return (
     <BrowserRouter>
+      <NavBar />
       <Routes>
-        <Route path="/" element={<>Home</>} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/additem" element={<AddItemForm />} />
-        <Route path="/cardetail" element={<CarDetail clickHandler={clickHandler} userid={user.id} carid={carId} />} />
+        <Route path="/cardetail" element={<CarDetail clickHandler={clickHandler} userid={user ? user.id : 4} carid={carId} />} />
       </Routes>
     </BrowserRouter>
   );
