@@ -2,32 +2,33 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const Navbar = ({userRole}) => {
+const Navbar = ({ userRole }) => {
+  if (userRole !== 'admin') {
+    return (
+      <nav className="sidenav">
+        <div>
+          <h2>Book a Mechanic</h2>
+        </div>
+        <Link to="/">Home</Link>
+        <Link to="/MakeAppointment">Make Appointment</Link>
+        <Link to="/myappointmentpage">My Appointments </Link>
 
-  if (userRole !== "admin") {
-    return (<nav className="sidenav">
-    <div>
-      <h2>Book a Mechanic</h2>
-    </div>
-    <Link to="/">Home</Link>
-    <Link to="/MakeAppointment">Make Appointment</Link>
-    <Link to="/myappointmentpage">My Appointments </Link>
-
-  </nav>)
-  };
+      </nav>
+    );
+  }
 
   return (
-  <nav className="sidenav">
-    <div>
-      <h2>Book a Mechanic</h2>
-    </div>
-    <Link to="/">Home</Link>
-    <Link to="/MakeAppointment">Make Appointment</Link>
-    <Link to="/myappointmentpage">My Appointments </Link>
-    <Link to="/additem">Add Car</Link>
-    <Link to="/delete-car">Delete Car</Link>
+    <nav className="sidenav">
+      <div>
+        <h2>Book a Mechanic</h2>
+      </div>
+      <Link to="/">Home</Link>
+      <Link to="/MakeAppointment">Make Appointment</Link>
+      <Link to="/myappointmentpage">My Appointments </Link>
+      <Link to="/additem">Add Car</Link>
+      <Link to="/delete-car">Delete Car</Link>
 
-  </nav>
+    </nav>
   );
 };
 
@@ -36,9 +37,7 @@ Navbar.propTypes = {
 
 };
 Navbar.defaultProps = {
-  userRole: "default",
+  userRole: 'default',
 };
 
 export default Navbar;
-
-

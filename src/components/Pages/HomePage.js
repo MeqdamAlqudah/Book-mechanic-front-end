@@ -1,34 +1,34 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
+import { useSelector } from 'react-redux';
 import store from '../../redux/configureStore';
 import AxiosWrapper from '../../requirments/AxiosWrapper';
 import Login from '../../pages/Login';
-import { useSelector } from 'react-redux';
 
 const HomePage = () => {
   const [carData, setCars] = useState({});
-  const userLogin = useSelector((el) => el.userReducer.current_user)
+  const userLogin = useSelector((el) => el.userReducer.current_user);
 
   const GET_CAR_DETAIL = 'GET_CAR_DETAIL';
   useEffect(() => {
     if (Object.keys(userLogin).length !== 0) {
       AxiosWrapper(`http://127.0.0.1:3000/api/v1/users/${userLogin[0].id}/cars`).then((res) => {
-      setCars(res.data);
-  });
-  }
-    
+        setCars(res.data);
+      });
+    }
   }, [userLogin]);
-const clickHandler = (data) => {
+  const clickHandler = (data) => {
     store.dispatch({ type: GET_CAR_DETAIL, data: data.id });
   };
   if (Object.keys(userLogin).length === 0) {
-    return(<>
-      <p>Please log in</p>
-      <Login />
-    </>)
-  }else if (Object.keys(carData).length <= 0) {
-  
+    return (
+      <>
+        <p>Please log in</p>
+        <Login />
+      </>
+    );
+  } if (Object.keys(carData).length <= 0) {
     return (<div className="main">loading...</div>);
   }
 
