@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 import AxiosWrapper from '../../requirments/AxiosWrapper';
 
-const CarDetail = ({ carId, userid }) => {
+const CarDetail = () => {
   const [currentCar, setCurrentCar] = useState({});
-
+  const carId = useSelector((el) => el.carDetailReducer.currentCarId || JSON.parse(localStorage.getItem('carId')));
   useEffect(() => {
-    AxiosWrapper(`http://127.0.0.1:3000/api/v1/users/${userid}/cars/${carId}`).then((res) => {
+    localStorage.setItem('carId', JSON.stringify(carId));
+    AxiosWrapper(`http://127.0.0.1:3000/api/v1/cars/${carId}`).then((res) => {
       setCurrentCar(res.data);
     });
   }, []);
@@ -37,12 +38,4 @@ const CarDetail = ({ carId, userid }) => {
   );
 };
 
-CarDetail.propTypes = {
-  carId: PropTypes.number,
-  userid: PropTypes.number,
-};
-CarDetail.defaultProps = {
-  carId: 5,
-  userid: 1,
-};
 export default CarDetail;

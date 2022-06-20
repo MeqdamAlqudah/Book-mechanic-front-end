@@ -1,15 +1,20 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
+import store from '../../redux/configureStore';
 import AxiosWrapper from '../../requirments/AxiosWrapper';
 
 const HomePage = () => {
   const [carData, setCars] = useState({});
-
+  const GET_CAR_DETAIL = 'GET_CAR_DETAIL';
   useEffect(() => {
     AxiosWrapper('http://127.0.0.1:3000/api/v1/cars').then((res) => {
       setCars(res.data);
     });
   }, []);
+  const clickHandler = (data) => {
+    store.dispatch({ type: GET_CAR_DETAIL, data: data.id });
+  };
   if (Object.keys(carData).length <= 0) {
     return (<div className="main">loading...</div>);
   }
@@ -25,9 +30,9 @@ const HomePage = () => {
                 <div className="card-body">
                   <h5 className="card-title">{car.model}</h5>
                   <p className="card-text">{car.registration}</p>
-                  <a href={`/cardetail?carId=${car.id}`} className="btn btn-primary">
+                  <Link to={`/cardetail?carId=${car.id}`} onClick={clickHandler(car)} className="btn btn-primary">
                     View Details
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
