@@ -2,6 +2,12 @@
   font-family: sans-serif;
 }
 
+body {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
 /* Navbar CSS */
 .sidenav {
   height: 100%;
@@ -28,5 +34,5 @@
 }
 
 .main {
-  margin-left: 200px; /* Same as the width of the sidenav */
+  margin-left: 200px;
 }

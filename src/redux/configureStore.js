@@ -11,6 +11,7 @@ const rootReducer = combineReducers({
   carReducer,
   appointmentReducer,
 });
+
 const store = configureStore({ reducer: rootReducer, Middleware: [thunk, logger] });
 
 export default store;
