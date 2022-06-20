@@ -29,13 +29,15 @@ const AddItemForm = () => {
   };
 
   return (
-    <form onSubmit={submitHandler}>
-      <input type="text" name="brand" placeholder="Car Brand" />
-      <input type="text" name="model" placeholder="Car Model" />
-      <input type="text" name="registration" placeholder="Car Registration" />
-      <input type="text" name="photo" placeholder="Car Photo Url" />
-      <button type="submit">Submit</button>
-    </form>
+    <div className="main">
+      <form onSubmit={submitHandler}>
+        <input type="text" name="brand" placeholder="Car Brand" />
+        <input type="text" name="model" placeholder="Car Model" />
+        <input type="text" name="registration" placeholder="Car Registration" />
+        <input type="text" name="photo" placeholder="Car Photo Url" />
+        <button type="submit">Submit</button>
+      </form>
+    </div>
   );
 };
 

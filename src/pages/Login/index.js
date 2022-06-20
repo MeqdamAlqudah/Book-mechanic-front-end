@@ -1,31 +1,47 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import style from './style.module';
+import store from '../../redux/configureStore';
 import axios from 'axios';
 // import style from './style.module';
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+    const USER_LOGIN = 'USER_LOGIN';
+    const [ email, setEmail ] = useState('');
+    const [ password, setPassword ] = useState('');
 
-  const submitHandler = (e) => {
-    e.preventDefault();
+    const submitHandler = (e) => {
+        e.preventDefault();
 
-    const data = {
-      email,
-      password,
+        const data = {
+            email: email,
+            password: password
+        }
+
+        axios({
+            method: "POST",
+            url: "http://localhost:3000/users/sign_in",
+            data: data,
+            headers: {
+                'Content-Type': 'application/json',
+              },
+        }).then((response) => store.dispatch({ type: USER_LOGIN, newUser: response.data }));
+
+        setEmail('');
+        setPassword('');
     };
-    console.log(data);
-    axios({
-      method: 'post',
-      url: 'http://localhost:3000/users/sign_in',
-      data,
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    }).then((response) => console.log(response));
+    // console.log(data);
+    // axios({
+    //   method: 'post',
+    //   url: 'http://localhost:3000/users/sign_in',
+    //   data,
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    // }).then((response) => console.log(response));
 
-    // axios.delete('/users/sign_out');
-  };
+  //   // axios.delete('/users/sign_out');
+  // };
   return (
     <div className="main">
       <div>
