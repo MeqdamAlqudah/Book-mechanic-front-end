@@ -19,8 +19,7 @@ function App() {
     if (Object.keys(user).length !== 0) {
       setLogin(true);
     }
-  }, [user]); 
-  
+  }, [user]);
 
   return (
     <BrowserRouter>

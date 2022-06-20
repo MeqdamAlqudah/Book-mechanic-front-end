@@ -1,20 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 import store from '../../redux/configureStore';
 import style from './style.module.css';
 
 const Navbar = ({ userRole, login }) => {
-
-const LOGOUT = 'LOGOUT'
+  const LOGOUT = 'LOGOUT';
 
   const clickHandler = () => {
     axios.delete('/users/sign_out');
     store.dispatch({
-      type: LOGOUT, 
-    })
-  }
-  
+      type: LOGOUT,
+    });
+  };
 
   if (userRole !== 'admin') {
     return (
@@ -48,7 +47,7 @@ const LOGOUT = 'LOGOUT'
 
 Navbar.propTypes = {
   userRole: PropTypes.string,
-  login: PropTypes.bool, 
+  login: PropTypes.bool,
 };
 Navbar.defaultProps = {
   userRole: 'default',
