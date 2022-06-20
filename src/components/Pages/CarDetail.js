@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 import AxiosWrapper from '../../requirments/AxiosWrapper';
 
 const CarDetail = () => {
+
   const [currentCar, setCurrentCar] = useState({});
   const carId = useSelector((el) => el.carDetailReducer.currentCarId || JSON.parse(localStorage.getItem('carId')));
   useEffect(() => {
@@ -34,22 +35,7 @@ const CarDetail = () => {
       Photo:
       {' '}
       <img src={currentCar.photo} alt="car" />
-      <h2>Appointments:</h2>
-      {' '}
-      <ul>
-        {currentCar.appointments.map((element) => (
 
-          <li key={uuidv4()}>
-            Description:
-            {' '}
-            {element.description}
-            <br />
-            Date:
-            {' '}
-            {element.date}
-          </li>
-        ))}
-      </ul>
     </div>
   );
 };
