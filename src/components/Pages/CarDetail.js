@@ -15,7 +15,7 @@ const CarDetail = ({ carId }) => {
     return (<div>loading...</div>);
   }
   return (
-    <div>
+    <div className="main">
       <h1>Detail page</h1>
       Brand:
       {' '}
@@ -57,6 +57,6 @@ CarDetail.propTypes = {
   carId: PropTypes.number,
 };
 CarDetail.defaultProps = {
-  carId: 1,
+  carId: 3,
 };
 export default CarDetail;
