@@ -1,5 +1,7 @@
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import Login from './pages/Login';
 import NavBar from './components/Pages/NavBar';
 import Signup from './pages/Signup';
 import AddItemForm from './components/Forms/AddItemForm';
@@ -9,16 +11,36 @@ import MyAppointmentDetail from './components/Pages/MyAppointmentDetail';
 import HomePage from './components/Pages/HomePage';
 
 function App() {
-  const user = useSelector((el) => el.userReducer.find(((user) => user === 'currentUser')));
+  const [login, setLogin] = useState(false);
+
+  const user = useSelector((el) => el.userReducer.current_user);
+
+  useEffect(() => {
+    if (Object.keys(user).length !== 0) {
+      setLogin(true);
+    }
+  }, [user]); 
+  
+
   return (
     <BrowserRouter>
-      <NavBar />
+      <NavBar login={login} />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/additem" element={<AddItemForm />} />
-        <Route path="/cardetail" element={<CarDetail userid={user ? user.id : 4} />} />
-        <Route path="/myappointmentpage" element={<MyAppointmentDetail userid={1} />} />
+        <Route
+          path="/cardetail"
+          element={(
+            <>
+              {login ? <CarDetail userid={user.id} /> : <Login />}
+              {' '}
+
+            </>
+)}
+        />
+        <Route path="/additem" element={login ? <AddItemForm /> : <Login />} />
+        <Route path="/myappointmentpage" element={login ? <MyAppointmentDetail userid={user.id} /> : <Login />} />
 
       </Routes>
     </BrowserRouter>
