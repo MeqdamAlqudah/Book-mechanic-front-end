@@ -5,6 +5,8 @@ import NavBar from './components/Pages/NavBar';
 import Signup from './pages/Signup';
 import AddItemForm from './components/Forms/AddItemForm';
 import CarDetail from './components/Pages/CarDetail';
+import MyAppointmentDetail from './components/Pages/MyAppointmentDetail';
+
 import HomePage from './components/Pages/HomePage';
 
 function App() {
@@ -22,7 +24,9 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/additem" element={<AddItemForm />} />
+        <Route path="/myappointmentpage" element={<MyAppointmentDetail userid={1} />} />
         <Route path="/cardetail" element={<CarDetail clickHandler={clickHandler} userid={user ? user.id : 4} carid={carId} />} />
+
       </Routes>
     </BrowserRouter>
   );
