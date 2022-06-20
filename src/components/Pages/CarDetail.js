@@ -14,7 +14,7 @@ const CarDetail = ({ carId, userid }) => {
     return (<div>loading...</div>);
   }
   return (
-    <div>
+    <div className="main">
       <h1>Detail page</h1>
       Brand:
       {' '}
