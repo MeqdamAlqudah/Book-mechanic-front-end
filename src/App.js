@@ -18,7 +18,7 @@ function App() {
   useEffect(() => {
     if (Object.keys(user).length !== 0) {
       setLogin(true);
-    }else {
+    } else {
       setLogin(false);
     }
   }, [user]);
