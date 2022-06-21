@@ -1,34 +1,20 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import style from './style.module';
-import store from '../../redux/configureStore';
 import axios from 'axios';
-// import style from './style.module';
+import style from './style.module.css';
+import store from '../../redux/configureStore';
 
 const Login = () => {
-    const USER_LOGIN = 'USER_LOGIN';
-    const [ email, setEmail ] = useState('');
-    const [ password, setPassword ] = useState('');
+  const USER_LOGIN = 'USER_LOGIN';
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-    const submitHandler = (e) => {
-        e.preventDefault();
+  const submitHandler = (e) => {
+    e.preventDefault();
 
-        const data = {
-            email: email,
-            password: password
-        }
-
-        axios({
-            method: "POST",
-            url: "http://localhost:3000/users/sign_in",
-            data: data,
-            headers: {
-                'Content-Type': 'application/json',
-              },
-        }).then((response) => store.dispatch({ type: USER_LOGIN, newUser: response.data }));
-
-        setEmail('');
-        setPassword('');
+    const data = {
+      email,
+      password,
     };
     // console.log(data);
     // axios({
@@ -40,13 +26,24 @@ const Login = () => {
     //   },
     // }).then((response) => console.log(response));
 
-  //   // axios.delete('/users/sign_out');
-  // };
+    axios({
+      method: 'POST',
+      url: 'http://localhost:3000/users/sign_in',
+      data,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }).then((response) => store.dispatch({ type: USER_LOGIN, newUser: response.data }));
+
+    setEmail('');
+    setPassword('');
+  };
+
   return (
-    <div className="main">
-      <div>
-        <h1>Login</h1>
-        <form onSubmit={submitHandler}>
+    <div className={style.main}>
+      <div className={style.wrapper}>
+        <form className={style.card} onSubmit={submitHandler}>
+          <div>Login</div>
           <label htmlFor="email">
             Email
             <input type="email" id="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
@@ -56,7 +53,7 @@ const Login = () => {
             <input type="password" id="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
           </label>
 
-          <button type="submit">Log In</button>
+          <button type="submit" className={style.btn}>Log In</button>
         </form>
 
         <small>
