@@ -1,21 +1,31 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import axios from 'axios';
+import { useSelector } from 'react-redux';
 import store from '../../redux/configureStore';
 import style from './style.module.css';
 
-const Navbar = ({ userRole, login }) => {
+const Navbar = ({ userRole }) => {
+  const [login, setLogin] = useState(false);
 
-const LOGOUT = 'LOGOUT'
+  const user = useSelector((el) => el.userReducer.current_user);
 
+  const LOGOUT = 'LOGOUT';
+  const signOutUrl = 'http://localhost:3000/users/sign_out';
   const clickHandler = () => {
-    axios.delete('/users/sign_out');
+    axios.delete(signOutUrl);
     store.dispatch({
-      type: LOGOUT, 
-    })
-  }
-  
-
+      type: LOGOUT,
+    });
+  };
+  useEffect(() => {
+    if (Object.keys(user).length !== 0) {
+      setLogin(true);
+    } else {
+      setLogin(false);
+    }
+  }, [user]);
   if (userRole !== 'admin') {
     return (
       <nav className="sidenav">
@@ -48,11 +58,9 @@ const LOGOUT = 'LOGOUT'
 
 Navbar.propTypes = {
   userRole: PropTypes.string,
-  login: PropTypes.bool, 
 };
 Navbar.defaultProps = {
   userRole: 'default',
-  login: false,
 };
 
 export default Navbar;

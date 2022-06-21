@@ -42,6 +42,6 @@ MyAppointmentDetail.propTypes = {
   userid: PropTypes.number,
 };
 MyAppointmentDetail.defaultProps = {
-  userid: 1,
+  userid: 0,
 };
 export default MyAppointmentDetail;

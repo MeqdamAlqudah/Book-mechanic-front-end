@@ -24,7 +24,6 @@ const HomePage = () => {
   if (Object.keys(userLogin).length === 0) {
     return (
       <>
-        <p>Please log in</p>
         <Login />
       </>
     );
