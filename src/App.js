@@ -18,12 +18,14 @@ function App() {
   useEffect(() => {
     if (Object.keys(user).length !== 0) {
       setLogin(true);
+    }else {
+      setLogin(false);
     }
   }, [user]);
 
   return (
     <BrowserRouter>
-      <NavBar login={login} />
+      <NavBar />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<Login />} />
@@ -32,7 +34,7 @@ function App() {
           path="/cardetail"
           element={(
             <>
-              {login ? <CarDetail userid={user.id} /> : <Login />}
+              {login ? <CarDetail userId={user.id} /> : <Login />}
               {' '}
 
             </>

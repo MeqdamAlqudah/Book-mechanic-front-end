@@ -16,16 +16,6 @@ const Login = () => {
       email,
       password,
     };
-    // console.log(data);
-    // axios({
-    //   method: 'post',
-    //   url: 'http://localhost:3000/users/sign_in',
-    //   data,
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    // }).then((response) => console.log(response));
-
     axios({
       method: 'POST',
       url: 'http://localhost:3000/users/sign_in',
