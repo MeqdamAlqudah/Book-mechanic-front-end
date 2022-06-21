@@ -28,7 +28,10 @@ const Navbar = ({ userRole }) => {
   }, [user]);
   if (userRole !== 'admin') {
     return (
-      <nav className="sidenav">
+      <nav className="offcanvas offcanvas-start side-bar" data-bs-backdrop="false" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+        <div className="offcanvas-header">
+          <span className="material-symbols-outlined" data-bs-dismiss="offcanvas" aria-hidden="true">close</span>
+        </div>
         <div>
           <h2>Book a Mechanic</h2>
         </div>
@@ -41,7 +44,11 @@ const Navbar = ({ userRole }) => {
   }
 
   return (
-    <nav className="sidenav">
+    <nav className="offcanvas offcanvas-start side-bar" data-bs-backdrop="false" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+      <div className="offcanvas-header">
+        <span className="material-symbols-outlined" data-bs-dismiss="offcanvas" aria-hidden="true">close</span>
+      </div>
+      
       <div>
         <h2>Book a Mechanic</h2>
       </div>

@@ -9,6 +9,7 @@ import CarDetail from './components/Pages/CarDetail';
 import MyAppointmentDetail from './components/Pages/MyAppointmentDetail';
 
 import HomePage from './components/Pages/HomePage';
+import Appointmentform from './components/Forms/Appointmentform';
 
 function App() {
   const [login, setLogin] = useState(false);
@@ -41,6 +42,7 @@ function App() {
 )}
         />
         <Route path="/additem" element={login ? <AddItemForm /> : <Login />} />
+        <Route path="/appointment" element={login ? <Appointmentform /> : <Login />} />
         <Route path="/myappointmentpage" element={login ? <MyAppointmentDetail userid={user.id} /> : <Login />} />
 
       </Routes>
