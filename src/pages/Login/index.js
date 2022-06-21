@@ -16,7 +16,6 @@ const Login = () => {
       email,
       password,
     };
-
     axios({
       method: 'POST',
       url: 'http://localhost:3000/users/sign_in',

@@ -9,13 +9,13 @@ const AddItemForm = () => {
     event.preventDefault();
     axios({
       method: 'post',
-      url: 'http://127.0.0.1:3000/api/v1/cars',
+      url: 'http://localhost:3000/api/v1/cars',
       data: {
         brand: event.target[0].value,
         model: event.target[1].value,
         registration: event.target[2].value,
         photo: event.target[3].value,
-        user_id: user.id,
+        user_id: user ? user.id : 1,
       },
       headers: {
         'Content-Type': 'application/json',
