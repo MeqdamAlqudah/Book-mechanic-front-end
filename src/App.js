@@ -34,14 +34,14 @@ function App() {
           path="/cardetail"
           element={(
             <>
-              {login ? <CarDetail userId={user.id} /> : <Login />}
+              {login ? <CarDetail userId={user[0].id} /> : <Login />}
               {' '}
 
             </>
 )}
         />
         <Route path="/additem" element={login ? <AddItemForm /> : <Login />} />
-        <Route path="/myappointmentpage" element={login ? <MyAppointmentDetail userid={user.id} /> : <Login />} />
+        <Route path="/myappointmentpage" element={login ? <MyAppointmentDetail userid={user[0].id} /> : <Login />} />
 
       </Routes>
     </BrowserRouter>
