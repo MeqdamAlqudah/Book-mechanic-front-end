@@ -1,16 +1,17 @@
 import { v4 as uuidv4 } from 'uuid';
 import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import AxiosWrapper from '../../requirments/AxiosWrapper';
 
 const MyAppointmentDetail = ({ userid }) => {
   const [currentAppointments, setCurrentAppointments] = useState({});
-
+  const user = useSelector((el) => el.userReducer.current_user);
   useEffect(() => {
     AxiosWrapper(`http://127.0.0.1:3000/api/v1/users/${userid}/appointment`).then((res) => {
       setCurrentAppointments(res.data);
     });
-  }, []);
+  }, [user]);
   if (Object.keys(currentAppointments).length <= 0) {
     return (<div>loading...</div>);
   }
@@ -37,7 +38,6 @@ const MyAppointmentDetail = ({ userid }) => {
     </div>
   );
 };
-
 MyAppointmentDetail.propTypes = {
   userid: PropTypes.number,
 };
