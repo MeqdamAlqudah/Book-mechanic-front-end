@@ -28,10 +28,8 @@ const Navbar = ({ userRole }) => {
   }, [user]);
   if (userRole !== 'admin') {
     return (
-      <nav className="offcanvas offcanvas-start side-bar" data-bs-backdrop="false" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
-        <div className="offcanvas-header">
-          <span className="material-symbols-outlined" data-bs-dismiss="offcanvas" aria-hidden="true">close</span>
-        </div>
+      <nav className='sidenav'>
+        
         <div>
           <h2>Book a Mechanic</h2>
         </div>
@@ -39,15 +37,13 @@ const Navbar = ({ userRole }) => {
         <Link to="/MakeAppointment" className={style.block}>Make Appointment</Link>
         <Link to="/myappointmentpage" className={style.block}>My Appointments </Link>
         <Link to="/login" onClick={clickHandler} className={login ? style.block : style.hidden}>Log out</Link>
+      
       </nav>
     );
   }
 
   return (
-    <nav className="offcanvas offcanvas-start side-bar" data-bs-backdrop="false" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
-      <div className="offcanvas-header">
-        <span className="material-symbols-outlined" data-bs-dismiss="offcanvas" aria-hidden="true">close</span>
-      </div>
+    <nav className='sidenav'>
       
       <div>
         <h2>Book a Mechanic</h2>
@@ -58,7 +54,7 @@ const Navbar = ({ userRole }) => {
       <Link to="/additem" className={style.block}>Add Car</Link>
       <Link to="/delete-car" className={style.block}>Delete Car</Link>
       <Link to="/login" onClick={clickHandler} className={login ? style.block : style.hidden}>Log out</Link>
-
+      
     </nav>
   );
 };

@@ -20,8 +20,8 @@
   }
   
   .btn {
-    background-color: #fff;
-    color: var(--green);
+    background-color: rgb(221, 218, 218);
+    color: lawngreen;
     grid-column: 1 / span 3;
     width: 200px;
     margin: auto;
@@ -29,7 +29,7 @@
   }
   
   ::placeholder {
-    color: #fff;
+    color: rgb(75, 73, 73);
     opacity: 1;
   }
   
@@ -41,7 +41,7 @@
     color: #fff;
   }
   
-  .errors {
+  /* .errors {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -78,7 +78,7 @@
   
   .select-options span:hover {
     background-color: var(--green);
-  }
+  } */
   
   @media only screen and (max-width: 670px) {
     .form {
@@ -87,7 +87,7 @@
   
     .btn {
       grid-column: unset;
-      width: unset;
-      margin: unset;
+      /* width: unset;
+      margin: unset; */
     }
   }

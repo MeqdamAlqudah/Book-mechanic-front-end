@@ -1,75 +1,53 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import React, { useState, useEffect } from 'react';
 import style from './style.module.css';
 
-const Appointmentform = ({ props }) => {
-    const [city, setCity] = useState();
-    const [date, setDate] = useState();
-    const [openSelect, setOpenSelect] = useState(false);
-        
-//     // const [car_id, setCar_id] = useState(props.currentCarId || '');
-//     const [result, setResult] = useState({
-//     response: null,
-//     data: null,
-//   });
+const Appointmentform = () => {
 
-//   const navigate = useNavigate();
+    const [city, setCity] = useState('');
+    const [date, setDate] = useState('');
+    const [ cars, setCars] = useState([]);
+      
+  //   const [car_id, setCar_id] = useState(props.currentCarId || '');
+  //   const [result, setResult] = useState({
+  //   response: null,
+  //   data: null,
+  // });
+
+  const appoint = {
+    city,
+    date,
+    car_id: 4,
+    user_id: 1,
+  }
+
+  const getCars = () => {
+    const userId = 1
+     fetch(`http://127.0.0.1:3000/api/v1/users/${userId}/cars`) 
+     .then(response=>response.json())
+     .then(data => setCars(data))
+
+    }
 
   const bookAppointment = async (e) => {
     e.preventDefault();
+
+    axios({
+      method: 'POST',
+      url: 'http://localhost:3000/api/v1/appointment',
+      appoint,
+      headers: {
+        'Content-Type': 'application/json', 
+      },
+    }).then((response) => console.log(response.appoint) )
   }
 
-//     let status = null;
-
-//     const appoint = {
-//       city, 
-//       date, 
-//       car_id, 
-//     //   user_id: props.currentUser.id,
-//     };
-
-//     await fetch(`http://localhost:3000/api/v1/appointments`, {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//       body: JSON.stringify({ appoint }),
-//     })
-//       .then((resp) => {
-//         status = resp.ok;
-//         if (status) {
-//           navigate('/');
-//         }
-//         return resp.json();
-//       })
-//       .then((data) => {
-//         setResult({
-//           response: status,
-//           data,
-//         });
-//         toast.success('Appointment created successfully!');
-//         return data;
-//       });
-//   };
-
-//   const selectCar = (id) => {
-//     setCar_id(id);
-//     setOpenSelect(false);
-//   };
+useEffect(() => {
+  getCars();
+}, []);
 
   return (
       <>
-    {/* {result.data && (
-        <div>
-          {result.data && Object.entries(result.data).map((error) => (
-            <p key={error[0]}>
-              {capitalize(error[0])}
-              {' '}
-              {error[1]}
-            </p>
-          ))}
-        </div>
-      )} */}
       <form className={style.form} onSubmit={(e) => bookAppointment(e)}>
         <input
           className={style['form-child']}
@@ -79,24 +57,13 @@ const Appointmentform = ({ props }) => {
           onChange={(e) => setCity(e.target.value)}
           required
         />
-        <div className={style.select}>
-          {openSelect && (
-            <div className={style['select-options']}>
-              {props.car.map(({ id, name }) => (
-                <span
-                  key={id}
-                  value={id}
-                  role="presentation"
-                  onClick={() => selectCar(id)}
-                >
-                  {name}
-                </span>
-              ))}
-            </div>
-          )}
-          {/* <p role="presentation" onClick={() => setOpenSelect(!openSelect)}>
-            {car_id ? props.car.find((b) => b.id === car_id).name : 'Select a car'}
-          </p> */}
+        <div className={style['form-child']}>
+          <select>
+            <option>--Select Car--</option>
+            <option>Benz</option>
+            <option>Bentley</option>
+            <option>Bugatti</option>
+          </select>
         </div>
         <input
           className={style['form-child']}
