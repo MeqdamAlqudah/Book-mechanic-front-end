@@ -75,10 +75,11 @@
     padding: 0.1rem 0.3rem;
     cursor: pointer;
   }
+  */
   
-  .select-options span:hover {
+  select span:hover {
     background-color: var(--green);
-  } */
+  }
   
   @media only screen and (max-width: 670px) {
     .form {

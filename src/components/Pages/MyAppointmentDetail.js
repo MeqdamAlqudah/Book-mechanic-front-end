@@ -2,6 +2,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import AxiosWrapper from '../../requirments/AxiosWrapper';
+import Appointmentform from '../Forms/Appointmentform';
 
 const MyAppointmentDetail = ({ userid }) => {
   const [currentAppointments, setCurrentAppointments] = useState({});
@@ -34,6 +35,8 @@ const MyAppointmentDetail = ({ userid }) => {
           </li>
         ))}
       </ul>
+
+      <Appointmentform />
     </div>
   );
 };
