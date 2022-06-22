@@ -4,7 +4,7 @@ const initialState = [];
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case CREATE_APPOINTMENT:
-      return [...state, action.newAppointment]
+      return [...state, action.newAppointment];
     default:
       return state;
   }
