@@ -14,7 +14,7 @@ const Appointmentform = () => {
   const [carId, setCarId] = useState(1);
 
   const user = useSelector((el) => el.userReducer.current_user);
-   
+
   const appoint = {
     city,
     date,
@@ -53,7 +53,7 @@ const Appointmentform = () => {
   }, []);
 
   return (
-      <>
+    <>
       <form className={style.form} onSubmit={(e) => bookAppointment(e)}>
         <input
           className={style['form-child']}
@@ -69,7 +69,7 @@ const Appointmentform = () => {
             {cars.map((car) => (
 
               <option onClick={() => clickHandler(car.id)} key={uuidv4()}>{car.brand}</option>
-              
+
             ))}
           </select>
         </div>

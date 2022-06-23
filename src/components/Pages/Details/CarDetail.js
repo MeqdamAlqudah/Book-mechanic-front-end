@@ -21,24 +21,24 @@ const CarDetail = ({ userId }) => {
       <div className={style.container}>
         <section className={style['image-section']}>
           <h1>Detail page</h1>
-            Brand:
-              {' '}
-              {currentCar.brand}
-              <br />
-              {' '}
-            Model:
-              {' '}
-              {currentCar.model}
-              <br />
-            Registration:
-              {' '}
-              {currentCar.registration}
-              <br />
-            Photo:
-              {' '}
-        <img src={currentCar.photo} className={style.image} alt="car" />
-      </section>
-     </div>
+          Brand:
+          {' '}
+          {currentCar.brand}
+          <br />
+          {' '}
+          Model:
+          {' '}
+          {currentCar.model}
+          <br />
+          Registration:
+          {' '}
+          {currentCar.registration}
+          <br />
+          Photo:
+          {' '}
+          <img src={currentCar.photo} className={style.image} alt="car" />
+        </section>
+      </div>
 
     </div>
   );
