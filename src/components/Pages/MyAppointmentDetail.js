@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import AxiosWrapper from '../../requirments/AxiosWrapper';
+import Appointmentform from '../Forms/Appointmentform';
 
 const MyAppointmentDetail = ({ userid }) => {
   const [currentAppointments, setCurrentAppointments] = useState({});
@@ -35,6 +36,8 @@ const MyAppointmentDetail = ({ userid }) => {
           </li>
         ))}
       </ul>
+
+      <Appointmentform />
     </div>
   );
 };
