@@ -35,6 +35,8 @@ const CarDetail = ({ userId }) => {
       {' '}
       <img src={currentCar.photo} alt="car" />
 
+      <button type="button">Reserve</button>
+
     </div>
   );
 };
