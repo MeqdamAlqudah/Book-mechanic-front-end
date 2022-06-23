@@ -20,8 +20,8 @@
 }
 
 .btn {
-  background-color: rgb(221, 218, 218);
-  color: lawngreen;
+  background-color: #96bf0fd7;
+  color: rgb(214, 213, 213);
   grid-column: 1 / span 3;
   width: 200px;
   margin: auto;
@@ -40,42 +40,6 @@
 :-ms-input-placeholder {
   color: #fff;
 }
-
-/* .errors {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: #fff;
-  }
-
-  .select {
-    position: relative;
-  }
-
-  .select-title {
-    cursor: pointer;
-  }
-
-  .select-options {
-    position: absolute;
-    transform-origin: bottom;
-    bottom: 4rem;
-    display: flex;
-    flex-direction: column;
-    max-height: 10rem;
-    overflow-y: auto;
-    width: 100%;
-    padding: 0.5rem;
-    background-color: #639d05;
-    border-radius: 0.5rem;
-    box-shadow: 0 3px 6px -2px var(--black);
-  }
-
-  .select-options span {
-    padding: 0.1rem 0.3rem;
-    cursor: pointer;
-  }
-  */
 
 select span:hover {
   background-color: var(--green);
