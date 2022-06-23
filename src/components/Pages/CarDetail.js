@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import AxiosWrapper from '../../requirments/AxiosWrapper';
 
@@ -35,7 +36,9 @@ const CarDetail = ({ userId }) => {
       {' '}
       <img src={currentCar.photo} alt="car" />
 
-      <button type="button">Reserve</button>
+      <button type="button">
+        <Link to='/appointment'>Reserve</Link>
+      </button>
 
     </div>
   );
