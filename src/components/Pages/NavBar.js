@@ -36,12 +36,14 @@ const Navbar = ({ userRole }) => {
         <Link to="/MakeAppointment" className={style.block}>Make Appointment</Link>
         <Link to="/myappointmentpage" className={style.block}>My Appointments </Link>
         <Link to="/login" onClick={clickHandler} className={login ? style.block : style.hidden}>Log out</Link>
+
       </nav>
     );
   }
 
   return (
     <nav className="sidenav">
+
       <div>
         <h2>Book a Mechanic</h2>
       </div>
