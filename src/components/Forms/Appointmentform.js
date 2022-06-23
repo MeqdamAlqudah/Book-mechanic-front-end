@@ -35,12 +35,15 @@ const Appointmentform = () => {
     axios({
       method: 'POST',
       url: `http://localhost:3000/api/v1/users/${user[0].id}/appointment`,
-      appoint,
+      data:appoint,
       headers: {
         'Content-Type': 'application/json',
       },
     }).then(
-      (response) => store.dispatch({ type: CREATE_APPOINTMENT, newAppointment: response.data }),
+
+      (response) => {
+        console.log(response);
+        store.dispatch({ type: CREATE_APPOINTMENT, newAppointment: response.data })}
     );
   };
 

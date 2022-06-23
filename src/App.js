@@ -34,7 +34,7 @@ function App() {
           path="/cardetail"
           element={(
             <>
-              {login ? <CarDetail userId={user.id} /> : <Login />}
+              {login ? <CarDetail userId={user[0].id} /> : <Login />}
               {' '}
 
             </>

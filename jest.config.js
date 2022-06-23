@@ -53,6 +53,7 @@ module.exports = {
   moduleNameMapper: {
     uuid: '<rootDir>/node_modules/uuid',
     '\\.(css|scss)$': '<rootDir>/src/__mocks__/styleMock.js',
+    CarDetail:'<rootDir>/src/components/Pages/Details/CarDetail.js',
   },
   // Make calling deprecated APIs throw helpful error messages
   // errorOnDeprecated: false,
