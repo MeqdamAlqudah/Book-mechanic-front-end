@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
-import AxiosWrapper from '../../requirments/AxiosWrapper';
+import AxiosWrapper from '../../../requirments/AxiosWrapper';
+import style from './style.module.css';
 
 const CarDetail = ({ userId }) => {
   const [currentCar, setCurrentCar] = useState({});
@@ -16,24 +17,28 @@ const CarDetail = ({ userId }) => {
     return (<div>loading...</div>);
   }
   return (
-    <div className="main">
-      <h1>Detail page</h1>
-      Brand:
-      {' '}
-      {currentCar.brand}
-      <br />
-      {' '}
-      Model:
-      {' '}
-      {currentCar.model}
-      <br />
-      Registration:
-      {' '}
-      {currentCar.registration}
-      <br />
-      Photo:
-      {' '}
-      <img src={currentCar.photo} alt="car" />
+    <div className={style.page}>
+      <div className={style.container}>
+        <section className={style['image-section']}>
+          <h1>Detail page</h1>
+            Brand:
+              {' '}
+              {currentCar.brand}
+              <br />
+              {' '}
+            Model:
+              {' '}
+              {currentCar.model}
+              <br />
+            Registration:
+              {' '}
+              {currentCar.registration}
+              <br />
+            Photo:
+              {' '}
+        <img src={currentCar.photo} className={style.image} alt="car" />
+      </section>
+     </div>
 
     </div>
   );
@@ -44,4 +49,5 @@ CarDetail.propTypes = {
 CarDetail.defaultProps = {
   userId: 0,
 };
+
 export default CarDetail;

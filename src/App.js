@@ -5,7 +5,7 @@ import Login from './pages/Login';
 import NavBar from './components/Pages/NavBar';
 import Signup from './pages/Signup';
 import AddItemForm from './components/Forms/AddItemForm';
-import CarDetail from './components/Pages/CarDetail';
+import CarDetail from './components/Pages/Details/CarDetail';
 import MyAppointmentDetail from './components/Pages/MyAppointmentDetail';
 
 import HomePage from './components/Pages/HomePage';

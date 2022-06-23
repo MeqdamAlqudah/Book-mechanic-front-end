@@ -33,7 +33,7 @@ const HomePage = () => {
 
   return (
     <div className="main">
-      <h1>Home page</h1>
+      <h1 className="text-center mb-4">Mechanic For Your Car</h1>
       <div className="container">
         <div className="row ">
           {carData.slice(0, 3).map((car) => (
