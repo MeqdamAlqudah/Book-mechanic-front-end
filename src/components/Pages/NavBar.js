@@ -41,7 +41,7 @@ const Navbar = () => {
   }
 
   return (
-    <nav className="sidenav" >
+    <nav className="sidenav">
 
       <div>
         <h2>Book a Mechanic</h2>
