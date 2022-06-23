@@ -29,7 +29,6 @@ const Navbar = ({ userRole }) => {
   if (userRole !== 'admin') {
     return (
       <nav className="sidenav">
-
         <div>
           <h2>Book a Mechanic</h2>
         </div>
