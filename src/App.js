@@ -7,8 +7,8 @@ import Signup from './pages/Signup';
 import AddItemForm from './components/Forms/AddItemForm';
 import CarDetail from './components/Pages/CarDetail';
 import MyAppointmentDetail from './components/Pages/MyAppointmentDetail';
-
 import HomePage from './components/Pages/HomePage';
+import DeleteCar from './components/Pages/DeleteCar';
 
 function App() {
   const [login, setLogin] = useState(false);
@@ -41,7 +41,7 @@ function App() {
         />
         <Route path="/additem" element={login ? <AddItemForm /> : <Login />} />
         <Route path="/myappointmentpage" element={login ? <MyAppointmentDetail /> : <Login />} />
-
+        <Route path="/delete-car" element={login ? <DeleteCar /> : <Login />} />
       </Routes>
     </BrowserRouter>
   );

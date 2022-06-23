@@ -6,9 +6,11 @@ import store from '../../redux/configureStore';
 const AddItemForm = () => {
   const [carSubmited, setCarSubmited] = useState(false);
   const POST_CARS_DATA = 'POST_CARS_DATA';
+
   const user = useSelector((el) => el.userReducer.current_user);
   const submitHandler = (event) => {
     event.preventDefault();
+
     axios({
       method: 'post',
       url: `http://localhost:3000/api/v1/users/${user[0].id}/cars`,
@@ -29,6 +31,7 @@ const AddItemForm = () => {
 
       );
       setCarSubmited(true);
+      setTimeout(() => { setCarSubmited(false); }, 3000);
     }).catch((error) => {
       throw Error(error);
     });

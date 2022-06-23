@@ -6,11 +6,11 @@ import store from '../../redux/configureStore';
 import AxiosWrapper from '../../requirments/AxiosWrapper';
 import Login from '../../pages/Login';
 
-const HomePage = () => {
+const DeleteCar = () => {
   const [carData, setCars] = useState({});
   const userLogin = useSelector((el) => el.userReducer.current_user);
 
-  const GET_CAR_DETAIL = 'GET_CAR_DETAIL';
+  const DELETE_CAR_MIDDLEWARE = 'DELETE_CAR_MIDDLEWARE';
   useEffect(() => {
     if (Object.keys(userLogin).length !== 0) {
       AxiosWrapper(`http://127.0.0.1:3000/api/v1/users/${userLogin[0].id}/cars`).then((res) => {
@@ -19,7 +19,13 @@ const HomePage = () => {
     }
   }, [userLogin]);
   const clickHandler = (data) => {
-    store.dispatch({ type: GET_CAR_DETAIL, data: data.id });
+    store.dispatch(
+      {
+        type: DELETE_CAR_MIDDLEWARE,
+        data: { car_id: data.id, user_id: userLogin[0].id },
+      },
+    );
+    setCars(carData.filter((el) => el.id !== data.id));
   };
   if (Object.keys(userLogin).length === 0) {
     return (
@@ -36,7 +42,7 @@ const HomePage = () => {
 
   return (
     <div className="main">
-      <h1>Home page</h1>
+      <h1>delete car page</h1>
       <div className="container">
         <div className="row ">
           {carData.slice(0, 3).map((car) => (
@@ -46,8 +52,8 @@ const HomePage = () => {
                 <div className="card-body">
                   <h5 className="card-title">{car.model}</h5>
                   <p className="card-text">{car.registration}</p>
-                  <Link to={`/cardetail?carId=${car.id}`} onClick={() => clickHandler(car)} className="btn btn-primary">
-                    View Details
+                  <Link to={`/delete-car?carId=${car.id}`} onClick={() => clickHandler(car)} className="btn btn-primary">
+                    DELETE CAR
                   </Link>
                 </div>
               </div>
@@ -58,5 +64,4 @@ const HomePage = () => {
     </div>
   );
 };
-
-export default HomePage;
+export default DeleteCar;
