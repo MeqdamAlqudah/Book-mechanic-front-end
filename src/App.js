@@ -5,10 +5,11 @@ import Login from './pages/Login';
 import NavBar from './components/Pages/NavBar';
 import Signup from './pages/Signup';
 import AddItemForm from './components/Forms/AddItemForm';
-import CarDetail from './components/Pages/CarDetail';
+import CarDetail from './components/Pages/Details/CarDetail';
 import MyAppointmentDetail from './components/Pages/MyAppointmentDetail';
 import HomePage from './components/Pages/HomePage';
 import DeleteCar from './components/Pages/DeleteCar';
+import Appointmentform from './components/Forms/Appointmentform';
 
 function App() {
   const [login, setLogin] = useState(false);
@@ -42,6 +43,8 @@ function App() {
         <Route path="/additem" element={login ? <AddItemForm /> : <Login />} />
         <Route path="/myappointmentpage" element={login ? <MyAppointmentDetail /> : <Login />} />
         <Route path="/delete-car" element={login ? <DeleteCar /> : <Login />} />
+        <Route path="/appointment" element={login ? <Appointmentform /> : <Login />} />
+
       </Routes>
     </BrowserRouter>
   );

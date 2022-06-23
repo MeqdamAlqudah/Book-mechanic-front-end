@@ -2,6 +2,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import AxiosWrapper from '../../requirments/AxiosWrapper';
+import Appointmentform from '../Forms/Appointmentform';
 
 const MyAppointmentDetail = () => {
   const [submited, setSubmited] = useState(false);
@@ -38,6 +39,8 @@ const MyAppointmentDetail = () => {
           </li>
         ))}
       </ul>
+
+      <Appointmentform />
     </div>
   );
 };
