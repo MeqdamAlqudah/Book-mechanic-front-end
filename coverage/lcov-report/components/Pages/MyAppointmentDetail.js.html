@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">44.68% </span>
+                <span class="strong">35.55% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>21/47</span>
+                <span class='fraction'>16/45</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">66.66% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>1/2</span>
+                <span class='fraction'>2/3</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">44.68% </span>
+                <span class="strong">35.55% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>21/47</span>
+                <span class='fraction'>16/45</span>
             </div>
         
             
@@ -108,9 +108,7 @@
 <a name='L43'></a><a href='#L43'>43</a>
 <a name='L44'></a><a href='#L44'>44</a>
 <a name='L45'></a><a href='#L45'>45</a>
-<a name='L46'></a><a href='#L46'>46</a>
-<a name='L47'></a><a href='#L47'>47</a>
-<a name='L48'></a><a href='#L48'>48</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L46'></a><a href='#L46'>46</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -119,6 +117,8 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -149,31 +149,31 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { v4 as uuidv4 } from 'uuid';
 import { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 import AxiosWrapper from '../../requirments/AxiosWrapper';
 &nbsp;
-const MyAppointmentDetail = ({ userid }) =&gt; {
+const MyAppointmentDetail = () =&gt; {
+  const [submited, setSubmited] = useState(false);
   const [currentAppointments, setCurrentAppointments] = useState({});
-&nbsp;
+  const user = useSelector((el) =&gt; el.userReducer.current_user);
   useEffect(() =&gt; {
-<span class="cstat-no" title="statement not covered" >    AxiosWrapper(`http://127.0.0.1:3000/api/v1/users/${userid}/appointment`).then((res) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    AxiosWrapper(`http://127.0.0.1:3000/api/v1/users/${user[0].id}/appointment`).then((res) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >      setCurrentAppointments(res.data);</span>
+<span class="cstat-no" title="statement not covered" >      setSubmited(true);</span>
 <span class="cstat-no" title="statement not covered" >    });</span>
-  }, []);
-  if (Object.keys(currentAppointments).length &lt;= 0) {
+  }, [user]);
+  if (Object.keys(currentAppointments).length === 0 &amp;&amp; !submited) {
     return (&lt;div&gt;loading...&lt;/div&gt;);
-  }
-<span class="cstat-no" title="statement not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >  return (</span></span>
+  }<span class="branch-0 cbranch-no" title="branch not covered" > if (submited) {</span>
+<span class="cstat-no" title="statement not covered" >    return (&lt;h1&gt;you need to make some appointments&lt;/h1&gt;);</span>
+<span class="cstat-no" title="statement not covered" >  }</span>
+<span class="cstat-no" title="statement not covered" >  return (</span>
 <span class="cstat-no" title="statement not covered" >    &lt;div&gt;</span>
 <span class="cstat-no" title="statement not covered" >      {' '}</span>
 <span class="cstat-no" title="statement not covered" >      &lt;h2&gt;Appointments:&lt;/h2&gt;</span>
@@ -197,12 +197,6 @@ const MyAppointmentDetail = ({ userid }) =&gt; {
 <span class="cstat-no" title="statement not covered" >  );</span>
 <span class="cstat-no" title="statement not covered" >};</span>
 &nbsp;
-MyAppointmentDetail.propTypes = {
-  userid: PropTypes.number,
-};
-MyAppointmentDetail.defaultProps = {
-  userid: 0,
-};
 export default MyAppointmentDetail;
 &nbsp;</pre></td></tr></table></pre>
 
@@ -211,7 +205,7 @@ export default MyAppointmentDetail;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Wed Jun 22 2022 11:40:20 GMT+0300 (Eastern European Summer Time)
+                at Thu Jun 23 2022 22:04:45 GMT+0300 (Eastern European Summer Time)
             </div>
         <script src="../../prettify.js"></script>
         <script>

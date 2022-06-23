@@ -7,6 +7,7 @@ const reducer = (state = initialState, action) => {
       return [...state, action.newitem];
     case (GET_CARS_DATA):
       return [action.cardata];
+
     default:
       return state;
   }

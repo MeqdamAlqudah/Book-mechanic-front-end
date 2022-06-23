@@ -7,15 +7,14 @@ import Signup from './pages/Signup';
 import AddItemForm from './components/Forms/AddItemForm';
 import CarDetail from './components/Pages/Details/CarDetail';
 import MyAppointmentDetail from './components/Pages/MyAppointmentDetail';
-
 import HomePage from './components/Pages/HomePage';
+import DeleteCar from './components/Pages/DeleteCar';
 import Appointmentform from './components/Forms/Appointmentform';
 
 function App() {
   const [login, setLogin] = useState(false);
 
   const user = useSelector((el) => el.userReducer.current_user);
-
   useEffect(() => {
     if (Object.keys(user).length !== 0) {
       setLogin(true);
@@ -35,15 +34,16 @@ function App() {
           path="/cardetail"
           element={(
             <>
-              {login ? <CarDetail userId={user[0].id} /> : <Login />}
+              {login ? <CarDetail userId={user.id} /> : <Login />}
               {' '}
 
             </>
 )}
         />
         <Route path="/additem" element={login ? <AddItemForm /> : <Login />} />
+        <Route path="/myappointmentpage" element={login ? <MyAppointmentDetail /> : <Login />} />
+        <Route path="/delete-car" element={login ? <DeleteCar /> : <Login />} />
         <Route path="/appointment" element={login ? <Appointmentform /> : <Login />} />
-        <Route path="/myappointmentpage" element={login ? <MyAppointmentDetail userid={user[0].id} /> : <Login />} />
 
       </Routes>
     </BrowserRouter>

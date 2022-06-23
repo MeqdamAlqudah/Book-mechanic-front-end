@@ -4,6 +4,7 @@ const LOGOUT = 'LOGOUT';
 
 const initialState = {
   current_user: {},
+  user_role: 'default',
 };
 
 const reducer = (state = initialState, action) => {
@@ -11,9 +12,9 @@ const reducer = (state = initialState, action) => {
     case USER_SIGNUP:
       return { ...state };
     case USER_LOGIN:
-      return { ...state, current_user: action.newUser };
+      return { ...state, current_user: action.newUser, user_role: action.newUser[0].role };
     case LOGOUT:
-      return { ...state, current_user: {} };
+      return { ...state, current_user: {}, user_role: 'default' };
     default:
       return state;
   }

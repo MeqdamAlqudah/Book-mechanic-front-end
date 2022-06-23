@@ -1,5 +1,8 @@
 import * as React from 'react';
 import MyAppointmentDetail from '../components/Pages/MyAppointmentDetail';
+import store from '../redux/configureStore';
+import { Provider } from 'react-redux';
+import { Router } from 'react-router-dom';
 
 const renderer = require('react-test-renderer');
 
@@ -19,7 +22,11 @@ describe('Test MyAppointmentDetail', () => {
       }),
     }));
     const component = renderer.create(
-      <MyAppointmentDetail userid={1} />,
+      <Provider store={store}>
+      <Router location="/">
+      <MyAppointmentDetail userid={1} />
+      </Router>
+      </Provider>,
     );
 
     const tree = component.toJSON();
