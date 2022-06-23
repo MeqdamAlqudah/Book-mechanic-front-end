@@ -22,7 +22,7 @@ const CarDetail = ({ userId }) => {
     <div className={style.page}>
       <div className={style.container}>
         <section className={style['image-section']}>
-          <h1>Detail page</h1>
+          <h1 className={style.title}>Detail page</h1>
           Brand:
           {' '}
           {currentCar.brand}
@@ -42,7 +42,7 @@ const CarDetail = ({ userId }) => {
         </section>
       </div>
 
-      <button type="button">
+      <button type="button" className={style.btn}>
         <Link to='/appointment'>Reserve</Link>
       </button>
 

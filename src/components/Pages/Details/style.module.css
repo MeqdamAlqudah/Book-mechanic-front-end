@@ -7,6 +7,10 @@
   padding: 2rem 0;
 }
 
+.title {
+    text-align: center;
+}
+
 .details {
   max-width: 100%;
   flex: 1;
@@ -14,6 +18,25 @@
   flex-direction: column;
   gap: 20px;
 }
+
+.btn {
+    border: 1px solid #fff;
+    border-radius: 2rem;
+    padding: 0.5rem 2rem;
+    text-align: center;
+    background-color: #96bf0fd7;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .btn:hover {
+    transform: scale(1.1);
+  }
+  
+  .btn:active {
+    transform: scale(0.95);
+  }
 
 .container {
   display: flex;

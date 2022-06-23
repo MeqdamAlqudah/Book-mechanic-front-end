@@ -54,6 +54,7 @@ const Appointmentform = () => {
 
   return (
     <>
+    <div className="main" >
       <form className={style.form} onSubmit={(e) => bookAppointment(e)}>
         <input
           className={style['form-child']}
@@ -88,6 +89,7 @@ const Appointmentform = () => {
           Book Now
         </button>
       </form>
+      </div>
     </>
   );
 };
