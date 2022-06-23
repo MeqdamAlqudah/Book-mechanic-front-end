@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import AxiosWrapper from '../../../requirments/AxiosWrapper';
 import style from './style.module.css';
@@ -21,7 +22,7 @@ const CarDetail = ({ userId }) => {
     <div className={style.page}>
       <div className={style.container}>
         <section className={style['image-section']}>
-          <h1>Detail page</h1>
+          <h1 className={style.title}>Detail page</h1>
           Brand:
           {' '}
           {currentCar.brand}
@@ -40,6 +41,10 @@ const CarDetail = ({ userId }) => {
           <img src={currentCar.photo} className={style.image} alt="car" />
         </section>
       </div>
+
+      <button type="button" className={style.btn}>
+        <Link to="/appointment">Reserve</Link>
+      </button>
 
     </div>
   );

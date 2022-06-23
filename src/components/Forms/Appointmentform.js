@@ -54,40 +54,42 @@ const Appointmentform = () => {
 
   return (
     <>
-      <form className={style.form} onSubmit={(e) => bookAppointment(e)}>
-        <input
-          className={style['form-child']}
-          type="text"
-          placeholder="City"
-          value={city}
-          onChange={(e) => setCity(e.target.value)}
-          required
-        />
-        <div>
-          <select className={style['form-child']}>
-            <option>--Select Car--</option>
-            {cars.map((car) => (
+      <div className="main">
+        <form className={style.form} onSubmit={(e) => bookAppointment(e)}>
+          <input
+            className={style['form-child']}
+            type="text"
+            placeholder="City"
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
+            required
+          />
+          <div>
+            <select className={style['form-child']}>
+              <option>--Select Car--</option>
+              {cars.map((car) => (
 
-              <option onClick={() => clickHandler(car.id)} key={uuidv4()}>{car.brand}</option>
+                <option onClick={() => clickHandler(car.id)} key={uuidv4()}>{car.brand}</option>
 
-            ))}
-          </select>
-        </div>
-        <input
-          className={style['form-child']}
-          type="date"
-          value={date}
-          onChange={(e) => setDate(e.target.value)}
-          required
-          placeholder="Select date"
-        />
-        <button
-          className={style.btn}
-          type="submit"
-        >
-          Book Now
-        </button>
-      </form>
+              ))}
+            </select>
+          </div>
+          <input
+            className={style['form-child']}
+            type="date"
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+            required
+            placeholder="Select date"
+          />
+          <button
+            className={style.btn}
+            type="submit"
+          >
+            Book Now
+          </button>
+        </form>
+      </div>
     </>
   );
 };
