@@ -43,7 +43,7 @@ const HomePage = () => {
                 <div className="card-body">
                   <h5 className="card-title">{car.model}</h5>
                   <p className="card-text">{car.registration}</p>
-                  <Link to={`/cardetail?carId=${car.id}`} onClick={clickHandler(car)} className="btn btn-primary">
+                  <Link to={`/cardetail?carId=${car.id}`} onClick={() => clickHandler(car)} className="btn btn-primary">
                     View Details
                   </Link>
                 </div>
