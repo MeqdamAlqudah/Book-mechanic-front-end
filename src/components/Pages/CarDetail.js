@@ -33,6 +33,7 @@ const CarDetail = ({ userId }) => {
       <br />
       Photo:
       {' '}
+      <br />
       <img src={currentCar.photo} alt="car" />
 
     </div>

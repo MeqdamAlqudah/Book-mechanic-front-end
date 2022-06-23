@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
 import store from '../../redux/configureStore';
 import style from './style.module.css';
 
-const Navbar = ({ userRole }) => {
+const Navbar = () => {
   const [login, setLogin] = useState(false);
 
   const user = useSelector((el) => el.userReducer.current_user);
-
+  const userRole = useSelector((el) => el.userReducer.user_role);
   const LOGOUT = 'LOGOUT';
   const signOutUrl = 'http://localhost:3000/users/sign_out';
   const clickHandler = () => {
@@ -54,13 +53,6 @@ const Navbar = ({ userRole }) => {
 
     </nav>
   );
-};
-
-Navbar.propTypes = {
-  userRole: PropTypes.string,
-};
-Navbar.defaultProps = {
-  userRole: 'default',
 };
 
 export default Navbar;

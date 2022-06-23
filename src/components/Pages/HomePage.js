@@ -30,6 +30,9 @@ const HomePage = () => {
   } if (Object.keys(carData).length <= 0) {
     return (<div className="main">loading...</div>);
   }
+  if (Object.keys(carData)[0] === 'status') {
+    return (<div style={{ color: 'red' }}>Please add some cars to see them here</div>);
+  }
 
   return (
     <div className="main">
@@ -43,7 +46,7 @@ const HomePage = () => {
                 <div className="card-body">
                   <h5 className="card-title">{car.model}</h5>
                   <p className="card-text">{car.registration}</p>
-                  <Link to={`/cardetail?carId=${car.id}`} onClick={clickHandler(car)} className="btn btn-primary">
+                  <Link to={`/cardetail?carId=${car.id}`} onClick={() => clickHandler(car)} className="btn btn-primary">
                     View Details
                   </Link>
                 </div>

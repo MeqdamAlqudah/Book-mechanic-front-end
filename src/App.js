@@ -14,7 +14,6 @@ function App() {
   const [login, setLogin] = useState(false);
 
   const user = useSelector((el) => el.userReducer.current_user);
-
   useEffect(() => {
     if (Object.keys(user).length !== 0) {
       setLogin(true);
@@ -34,14 +33,14 @@ function App() {
           path="/cardetail"
           element={(
             <>
-              {login ? <CarDetail userId={user[0].id} /> : <Login />}
+              {login ? <CarDetail userId={user.id} /> : <Login />}
               {' '}
 
             </>
 )}
         />
         <Route path="/additem" element={login ? <AddItemForm /> : <Login />} />
-        <Route path="/myappointmentpage" element={login ? <MyAppointmentDetail userid={user[0].id} /> : <Login />} />
+        <Route path="/myappointmentpage" element={login ? <MyAppointmentDetail /> : <Login />} />
 
       </Routes>
     </BrowserRouter>
