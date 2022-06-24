@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import store from '../../redux/configureStore';
+import style from './style.module.css';
 
 const AddItemForm = () => {
   const [carSubmited, setCarSubmited] = useState(false);
@@ -39,13 +40,13 @@ const AddItemForm = () => {
 
   if (!carSubmited) {
     return (
-      <div className="main">
-        <form onSubmit={submitHandler}>
-          <input type="text" name="brand" placeholder="Car Brand" />
-          <input type="text" name="model" placeholder="Car Model" />
-          <input type="text" name="registration" placeholder="Car Registration" />
-          <input type="text" name="photo" placeholder="Car Photo Url" />
-          <button type="submit">Submit</button>
+      <div className={`main ${style.mainform}`}>
+        <form onSubmit={submitHandler} className={style.formItem}>
+          <input type="text" name="brand" placeholder="Car Brand" className={style.formElement} />
+          <input type="text" name="model" placeholder="Car Model" className={style.formElement} />
+          <input type="text" name="registration" placeholder="Car Registration" className={style.formElement} />
+          <input type="text" name="photo" placeholder="Car Photo Url" className={style.formElement} />
+          <button type="submit" className={style.formElement}>Submit</button>
         </form>
       </div>
     );

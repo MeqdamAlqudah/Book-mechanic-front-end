@@ -22,7 +22,6 @@ const Appointmentform = () => {
     user_id: user[0].id,
     description: 'Road rager, sleek and smooth',
   };
-
   const getCars = () => {
     fetch(`http://127.0.0.1:3000/api/v1/users/${user[0].id}/cars`)
       .then((response) => response.json())

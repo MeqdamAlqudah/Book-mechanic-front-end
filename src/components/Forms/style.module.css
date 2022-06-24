@@ -45,6 +45,27 @@ select span:hover {
   background-color: var(--green);
 }
 
+.mainform {
+  display: flex;
+  justify-content: center;
+  margin-top: 10rem;
+}
+
+.formElement {
+  margin-bottom: 1rem;
+  border-width: 0.05px;
+  border-color: #cfcfcf38;
+  border-radius: 13px;
+  width: 29rem;
+  height: 3rem;
+}
+
+.formItem {
+  display: flex;
+  flex-direction: column;
+  width: 28rem;
+}
+
 @media only screen and (max-width: 670px) {
   .form {
     grid-template-columns: 1fr;
