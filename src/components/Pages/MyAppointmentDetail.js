@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import AxiosWrapper from '../../requirments/AxiosWrapper';
 import Appointmentform from '../Forms/Appointmentform';
+import style from './style.module.css';
 
 const MyAppointmentDetail = () => {
   const [submited, setSubmited] = useState(false);
@@ -15,9 +16,9 @@ const MyAppointmentDetail = () => {
     });
   }, [user]);
   if (Object.keys(currentAppointments).length === 0 && !submited) {
-    return (<div>loading...</div>);
+    return (<div className={style.myappointmentError}>loading...</div>);
   } if (submited) {
-    return (<h1>you need to make some appointments</h1>);
+    return (<h1 className={style.myappointmentError}>you need to make some appointments</h1>);
   }
   return (
     <div>

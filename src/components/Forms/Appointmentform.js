@@ -22,7 +22,6 @@ const Appointmentform = () => {
     user_id: user[0].id,
     description: 'Road rager, sleek and smooth',
   };
-
   const getCars = () => {
     fetch(`http://127.0.0.1:3000/api/v1/users/${user[0].id}/cars`)
       .then((response) => response.json())
@@ -35,12 +34,15 @@ const Appointmentform = () => {
     axios({
       method: 'POST',
       url: `http://localhost:3000/api/v1/users/${user[0].id}/appointment`,
-      appoint,
+      data: appoint,
       headers: {
         'Content-Type': 'application/json',
       },
     }).then(
-      (response) => store.dispatch({ type: CREATE_APPOINTMENT, newAppointment: response.data }),
+
+      (response) => {
+        store.dispatch({ type: CREATE_APPOINTMENT, newAppointment: response.data });
+      },
     );
   };
 

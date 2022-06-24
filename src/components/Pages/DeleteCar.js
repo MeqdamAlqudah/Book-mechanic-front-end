@@ -42,7 +42,7 @@ const DeleteCar = () => {
 
   return (
     <div className="main">
-      <h1>delete car page</h1>
+      <h1>Delete car page</h1>
       <div className="container">
         <div className="row ">
           {carData.slice(0, 3).map((car) => (

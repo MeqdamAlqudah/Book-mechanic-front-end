@@ -43,7 +43,7 @@ const CarDetail = ({ userId }) => {
       </div>
 
       <button type="button" className={style.btn}>
-        <Link to="/appointment">Reserve</Link>
+        <Link className={style.text} to="/appointment">Reserve</Link>
       </button>
 
     </div>
