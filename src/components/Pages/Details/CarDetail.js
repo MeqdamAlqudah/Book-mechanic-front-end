@@ -11,7 +11,7 @@ const CarDetail = ({ userId }) => {
 
   useEffect(() => {
     localStorage.setItem('carId', JSON.stringify(carId));
-    AxiosWrapper(`http://127.0.0.1:3000/api/v1/users/${userId}/cars/${carId}`).then((res) => {
+    AxiosWrapper(`https://morning-retreat-71597.herokuapp.com/api/v1/users/${userId}/cars/${carId}`).then((res) => {
       setCurrentCar(res.data);
     });
   }, [carId]);
