@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test CarDetail test CarDetail rendering  1`] = `
+<div>
+  loading...
+</div>
+`;

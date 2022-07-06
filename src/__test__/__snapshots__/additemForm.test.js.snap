@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test CarDetail test CarDetail rendering  1`] = `
+<div
+  className="main"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <input
+      name="brand"
+      placeholder="Car Brand"
+      type="text"
+    />
+    <input
+      name="model"
+      placeholder="Car Model"
+      type="text"
+    />
+    <input
+      name="registration"
+      placeholder="Car Registration"
+      type="text"
+    />
+    <input
+      name="photo"
+      placeholder="Car Photo Url"
+      type="text"
+    />
+    <button
+      type="submit"
+    >
+      Submit
+    </button>
+  </form>
+</div>
+`;
