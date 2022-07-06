@@ -18,7 +18,7 @@ const Login = () => {
     };
     axios({
       method: 'POST',
-      url: 'http://localhost:3000/users/sign_in',
+      url: 'https://morning-retreat-71597.herokuapp.com/users/sign_in',
       data,
       headers: {
         'Content-Type': 'application/json',

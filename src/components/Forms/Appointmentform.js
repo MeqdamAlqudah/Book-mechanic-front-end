@@ -23,7 +23,7 @@ const Appointmentform = () => {
     description: 'Road rager, sleek and smooth',
   };
   const getCars = () => {
-    fetch(`http://127.0.0.1:3000/api/v1/users/${user[0].id}/cars`)
+    fetch(`https://morning-retreat-71597.herokuapp.com/api/v1/users/${user[0].id}/cars`)
       .then((response) => response.json())
       .then((data) => setCars(data));
   };

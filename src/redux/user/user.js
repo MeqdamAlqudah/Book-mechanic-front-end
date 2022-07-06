@@ -12,6 +12,7 @@ const reducer = (state = initialState, action) => {
     case USER_SIGNUP:
       return { ...state };
     case USER_LOGIN:
+      console.log(action.newUser);
       return { ...state, current_user: action.newUser, user_role: action.newUser[0].role };
     case LOGOUT:
       return { ...state, current_user: {}, user_role: 'default' };

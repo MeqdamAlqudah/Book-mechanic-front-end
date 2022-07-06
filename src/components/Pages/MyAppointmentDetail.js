@@ -10,7 +10,7 @@ const MyAppointmentDetail = () => {
   const [currentAppointments, setCurrentAppointments] = useState({});
   const user = useSelector((el) => el.userReducer.current_user);
   useEffect(() => {
-    AxiosWrapper(`http://127.0.0.1:3000/api/v1/users/${user[0].id}/appointment`).then((res) => {
+    AxiosWrapper(`https://morning-retreat-71597.herokuapp.com/api/v1/users/${user[0].id}/appointment`).then((res) => {
       setCurrentAppointments(res.data);
       setSubmited(true);
     });

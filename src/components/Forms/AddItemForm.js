@@ -14,7 +14,7 @@ const AddItemForm = () => {
 
     axios({
       method: 'post',
-      url: `http://localhost:3000/api/v1/users/${user[0].id}/cars`,
+      url: `https://morning-retreat-71597.herokuapp.com/api/v1/users/${user[0].id}/cars`,
       data: {
         brand: event.target[0].value,
         model: event.target[1].value,

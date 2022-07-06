@@ -12,7 +12,7 @@ const Navbar = () => {
   const user = useSelector((el) => el.userReducer.current_user);
   const userRole = useSelector((el) => el.userReducer.user_role);
   const LOGOUT = 'LOGOUT';
-  const signOutUrl = 'http://localhost:3000/users/sign_out';
+  const signOutUrl = 'https://morning-retreat-71597.herokuapp.com/users/sign_out';
   const clickHandler = () => {
     axios.delete(signOutUrl);
     store.dispatch({

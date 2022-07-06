@@ -13,7 +13,7 @@ const DeleteCar = () => {
   const DELETE_CAR_MIDDLEWARE = 'DELETE_CAR_MIDDLEWARE';
   useEffect(() => {
     if (Object.keys(userLogin).length !== 0) {
-      AxiosWrapper(`http://127.0.0.1:3000/api/v1/users/${userLogin[0].id}/cars`).then((res) => {
+      AxiosWrapper(`https://morning-retreat-71597.herokuapp.com/api/v1/users/${userLogin[0].id}/cars`).then((res) => {
         setCars(res.data);
       });
     }
