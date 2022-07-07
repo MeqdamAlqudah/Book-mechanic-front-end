@@ -6,9 +6,8 @@
     "@reduxjs/toolkit": "^1.8.2",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/user-event": "^13.5.0",
-    "autoprefixer": "10.4.5",
     "axios": "^0.27.2",
-    "bootstrap": "^5.1.3",
+    "bootstrap": "^5.2.0-beta1",
     "prop-types": "^15.8.1",
     "react": "^18.1.0",
     "react-bootstrap": "^2.4.0",
@@ -30,11 +29,15 @@
     "uuidv4": "^6.2.13",
     "web-vitals": "^2.1.4"
   },
+  "overrides": {
+    "autoprefixer": "10.4.5"
+  },
   "scripts": {
     "start": "set PORT=4000 && react-scripts start",
     "build": "react-scripts build",
     "test": "jest",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "restart": "react-scripts start"
   },
   "eslintConfig": {
     "extends": [
@@ -80,8 +83,5 @@
     "stylelint-csstree-validator": "^1.9.0",
     "stylelint-scss": "^3.21.0",
     "typescript": "^4.7.4"
-  },
-  "overrides": {
-    "autoprefixer": "10.4.5"
-}
+  }
 }
