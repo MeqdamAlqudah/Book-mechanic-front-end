@@ -20,7 +20,7 @@ const deletecarmiddleware = (store) => (next) => (action) => {
   if (action.type === DELETE_CAR_MIDDLEWARE) {
     // Make an API call to fetch Book from the server
 
-    axios.delete(`http://localhost:3000/api/v1/users/${action.data.user_id}/cars/${action.data.car_id}`).then((response) => {
+    axios.delete(`https://morning-retreat-71597.herokuapp.com/api/v1/users/${action.data.user_id}/cars/${action.data.car_id}`).then((response) => {
       store.dispatch({ type: DELETE_CAR, data: response });
     });
   }
